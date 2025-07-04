@@ -1,0 +1,22 @@
+# docker-compose.yml
+version: '3.8' # Specify the Docker Compose file format version
+
+services:
+  open-webui: # Define a service named 'open-webui'
+    image: ghcr.io/open-webui/open-webui:main # The Docker image to use
+    container_name: open-webui # Explicitly set the container name
+    ports:
+      - "3000:8080" # Map host port 3000 to container port 8080
+    environment:
+      # Define environment variables for the container
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434/
+    volumes:
+      # Mount the named volume 'open-webui' to the container path
+      - open-webui:/app/backend/data
+    restart: always # Set the restart policy to always restart the container
+
+volumes:
+  # Define the named volume used by the service
+  open-webui:
+    # You can add a driver or driver_opts here if needed, e.g., for specific storage types.
+    # For a basic local volume, no further configuration is usually required.
