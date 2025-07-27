@@ -1,3 +1,9 @@
+# Getting started
+
+```
+docker-compose up --build
+```
+
 # Open WebUI 👋
 
 ![GitHub stars](https://img.shields.io/github/stars/open-webui/open-webui?style=social)
